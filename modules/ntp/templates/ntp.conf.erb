@@ -1,0 +1,28 @@
+# NTP Configuration File - Under Puppet Control
+
+# NTP Client Security
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1
+<% if scope.lookupvar('ntp::ntp_server_mode') == true -%>
+<% scope.lookupvar('ntp::ntp_client_subnets').split(';').each do |subnet| %><% data = subnet.split(',') %><%= "restrict "+data[0]+" mask "+data[1]+" nomodify notrap\n" %><% end %>
+<% end -%>
+
+# NTP Server Security
+<% scope.lookupvar('ntp::ntp_servers').split(';').each do |server| %>
+<%= "restrict "+server+" mask 255.255.255.255 nomodify notrap noquery" %>
+<% end -%>
+
+# NTP Server List
+<% scope.lookupvar('ntp::ntp_servers').split(';').each do |server| %>
+<%= "server "+server+" iburst" %>
+<% end -%>
+  
+multicastclient
+
+server  127.127.1.0     # local clock
+fudge   127.127.1.0 stratum 10
+
+driftfile /var/lib/ntp/drift
+
+keys /etc/ntp/keys

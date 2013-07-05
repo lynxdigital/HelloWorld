@@ -1,0 +1,16 @@
+# This File Is Under Puppet Control
+
+[main]
+cachedir=<%= scope.lookupvar('yum::params::cacheDir') %>
+keepcache=<%= scope.lookupvar('yum::params::keepCache') %>
+debuglevel=<%= scope.lookupvar('yum::params::debugLevel') %>
+logfile=<%= scope.lookupvar('yum::params::logFile') %>
+exactarch=<%= scope.lookupvar('yum::params::exactArch') %>
+obsoletes=<%= scope.lookupvar('yum::params::obsoletes') %>
+gpgcheck=<%= scope.lookupvar('yum::params::gpgCheck') %>
+plugins=<%= scope.lookupvar('yum::params::plugins') %>
+installonly_limit=<%= scope.lookupvar('yum::params::installOnlyLimit') %>
+<% if defined?(scope.lookupvar('yum::params::bugTrackerUrl')) -%>
+bugtracker_url=<%= scope.lookupvar('yum::params::bugTrackerUrl') %>
+<% end -%>
+distroverpkg=<%= scope.lookupvar('yum::params::distroVerPkg') %>

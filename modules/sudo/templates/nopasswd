@@ -1,0 +1,2 @@
+# Allow User TO Become Root With No Password - Puppet Controlled
+<%= @lclUser %>           ALL=(ALL)       NOPASSWD: ALL

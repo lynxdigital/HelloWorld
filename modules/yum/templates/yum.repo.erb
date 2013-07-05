@@ -1,0 +1,16 @@
+[<%= @lcl_shortName %>]
+name=<%= @longName %>
+<% if defined?(@baseUrl) -%>
+baseurl=<%= @baseUrl %>
+<% end -%>
+<% if defined?(@mirrorList) -%>
+mirrorlist=<%= @mirrorList %>
+<% end -%>
+<% if defined?(@failoverMethod) -%>
+failovermethod=<%= @failoverMethod %>
+<% end -%>
+enabled=<%= @enabled %>
+gpgcheck=<%= @gpgCheck %>
+<% if defined?(@gpgKey) -%>
+gpgkey=<%= @gpgKey %>
+<% end -%>
