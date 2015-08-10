@@ -9,8 +9,8 @@ define ruby::gem::install (
 
   # Install Ruby Gem File
   package { $lclGem:
-    ensure   => 'present',
-    provider => 'gem',
+    ensure        => 'present',
+    provider      => 'gem',
   }
 
 }

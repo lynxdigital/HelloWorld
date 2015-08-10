@@ -5,7 +5,7 @@ define sudo::user::config (
 
   # Require Sudo Install And Config
   require sudo::install
-  require sudo::config
+  #require sudo::config
 
   if $user == undef { $lclUser = $name } else { $lclUser = $user }
 

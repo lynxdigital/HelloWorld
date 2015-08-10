@@ -7,10 +7,10 @@ class ruby::app::helloWorld {
 
   # Deploy Git Code
   git::clone {'helloWorld':
-    source  => 'https://github.com/tnh/simple-sinatra-app.git',
-    target  => '/srv/www/helloWorld',
-    owner   => 'apache',
-    require => [Class['ruby::gem::sinatra'],Class['ruby::passenger::install']],
+    source   => 'https://github.com/tnh/simple-sinatra-app.git',
+    target   => '/srv/www/helloWorld',
+    owner    => 'apache',
+    require  => [Class['ruby::gem::sinatra'],Class['ruby::passenger::install']],
   }
 
   # Create Public Folder For Linking Web Server

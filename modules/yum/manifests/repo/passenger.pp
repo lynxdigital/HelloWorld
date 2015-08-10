@@ -11,10 +11,10 @@ class yum::repo::passenger {
   # Load Passenger Repository
   yum::repo::config { 'passenger':
     longName => 'Passenger Repository',
-    baseUrl  => 'http://passenger.stealthymonkeys.com/rhel/6/x86_64/',
+    baseUrl  => 'https://oss-binaries.phusionpassenger.com/yum/passenger/el/$releasever/$basearch',
     enabled  => '1',
-    gpgKey   => 'http://passenger.stealthymonkeys.com/RPM-GPG-KEY-stealthymonkeys.asc',
-    gpgCheck => '1',
+    gpgKey   => 'https://packagecloud.io/gpg.key',
+    gpgCheck => '0',
   }
 
 }
